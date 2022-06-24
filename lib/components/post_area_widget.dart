@@ -72,7 +72,7 @@ class PostButtonWidget extends StatelessWidget {
             children: [
               icon,
               const SizedBox(width: 8),
-              Text(text, style: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.bold)),
+              Text(text, style: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.bold, fontSize: 12)),
             ],
           )
         )
@@ -117,17 +117,17 @@ class PostStatisticWidget extends StatelessWidget {
         Row(
           children: [
             PostButtonWidget(
-              icon: Icon(LineIcons.thumbsUpAlt, color: Colors.grey[700], size: 12), 
+              icon: Icon(LineIcons.thumbsUpAlt, color: Colors.grey[700]), 
               text: "Curtir", 
               onTap: (){}
             ),
             PostButtonWidget(
-              icon: Icon(LineIcons.thumbsUpAlt, color: Colors.grey[700], size: 12), 
+              icon: Icon(LineIcons.alternateComment, color: Colors.grey[700]), 
               text: "Comentar", 
               onTap: (){}
             ),
             PostButtonWidget(
-              icon: Icon(LineIcons.thumbsUpAlt, color: Colors.grey[700], size: 12), 
+              icon: Icon(LineIcons.share, color: Colors.grey[700]), 
               text: "Compartilhar", 
               onTap: (){}
             ),
