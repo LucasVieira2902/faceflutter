@@ -64,18 +64,20 @@ class PostButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: InkWell(
-        onTap: (){},
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Row(
-            children: [
-              icon,
-              const SizedBox(width: 8),
-              Text(text, style: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.bold, fontSize: 12)),
-            ],
+      child: Material(
+        child: InkWell(
+          onTap: (){},
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Row(
+              children: [
+                icon,
+                const SizedBox(width: 8),
+                Text(text, style: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.bold, fontSize: 12)),
+              ],
+            )
           )
-        )
+        ),
       )
     );
   }
