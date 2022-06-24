@@ -1,7 +1,9 @@
 import 'package:faceflutter/components/circular_button.dart';
 import 'package:faceflutter/components/create_post_area.dart';
+import 'package:faceflutter/components/post_area_widget.dart';
 import 'package:faceflutter/components/stories_area.dart';
 import 'package:faceflutter/data/data.dart';
+import 'package:faceflutter/models/post.dart';
 import 'package:faceflutter/utils/paleta_cores.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -51,7 +53,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
             sliver: SliverToBoxAdapter(
               child: StoriesArea(
                 user: userLogged,
@@ -59,11 +61,14 @@ class _HomeState extends State<Home> {
               )
             ),
           ),
-          SliverToBoxAdapter(
-            child: Container(
-              height: 10000,
-              color: Colors.green,
-            )
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index){
+                Post post = posts[index];
+                return PostAreaWidget(post: post);
+              },
+              childCount: posts.length,
+            ),
           ),
       ]),
     );

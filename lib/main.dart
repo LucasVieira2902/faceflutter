@@ -1,4 +1,5 @@
 import 'package:faceflutter/telas/home.dart';
+import 'package:faceflutter/utils/paleta_cores.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: PaletaCores.scaffold
       ),
       home: Home()
     );
