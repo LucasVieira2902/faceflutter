@@ -19,12 +19,21 @@ class StoriesArea extends StatelessWidget {
       child: ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
         scrollDirection: Axis.horizontal,
-        itemCount: stories.length,
+        itemCount: stories.length + 1,
         itemBuilder: (context, index) {
-          final Story story = stories[index];
+          final Story story;
+          if(index == 0){
+            story = Story(
+              user: user,
+              urlImage: user.urlImage,
+              isVisualized: true,
+            );
+          }else{
+            story = stories[index-1];
+          }
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: StoryCardWidget(story: story),
+            child: StoryCardWidget(story: story, addStory: index == 0),
           );
         },
       ),
