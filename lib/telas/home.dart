@@ -1,5 +1,6 @@
 import 'package:faceflutter/components/circular_button.dart';
 import 'package:faceflutter/components/create_post_area.dart';
+import 'package:faceflutter/components/stories_area.dart';
 import 'package:faceflutter/data/data.dart';
 import 'package:faceflutter/utils/paleta_cores.dart';
 import 'package:flutter/material.dart';
@@ -47,6 +48,15 @@ class _HomeState extends State<Home> {
           SliverToBoxAdapter(
             child: CreatePostArea(
               user: userLogged,
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+            sliver: SliverToBoxAdapter(
+              child: StoriesArea(
+                user: userLogged,
+                stories: stories,
+              )
             ),
           ),
           SliverToBoxAdapter(

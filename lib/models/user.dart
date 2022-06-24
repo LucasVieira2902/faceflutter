@@ -1,6 +1,6 @@
 class User {
-  String nome;
+  String name;
   String urlImage;
 
-  User({required this.nome, required this.urlImage});
+  User({required this.name, required this.urlImage});
 }
