@@ -10,8 +10,8 @@ import 'package:faceflutter/models/user.dart';
 * */
 /* Usuário Logado */
 User userLogged = User(
- name: "Jamilton Damasceno",
- urlImage: "https://source.unsplash.com/EQFtEzJGERg/800x600"
+ name: "Lucas Vieira",
+ urlImage: "https://avatars.githubusercontent.com/u/66380573?v=4"
 );
 /* Lista de usuários online */
 List<User> usersOnline = [

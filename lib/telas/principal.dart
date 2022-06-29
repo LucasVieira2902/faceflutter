@@ -1,5 +1,8 @@
+import 'package:faceflutter/components/navigation_tabs_desktop.dart';
 import 'package:faceflutter/components/tab_navigation.dart';
+import 'package:faceflutter/data/data.dart';
 import 'package:faceflutter/telas/home.dart';
+import 'package:faceflutter/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -34,14 +37,30 @@ class _PrincipalState extends State<Principal> {
 
   @override
   Widget build(BuildContext context) {
+
+    final bool isDesktop = Responsive.isDesktop(context);
+
     return DefaultTabController(
       length: _icons.length, 
       child: Scaffold(
+        appBar: isDesktop ? PreferredSize(
+          preferredSize: Size(MediaQuery.of(context).size.width, 65),
+          child: NavigationTabsDesktop(
+            user: userLogged,
+            icons: _icons,
+            indexSelectedTab: _indexSelectedTab,
+            onTap: (index) {
+              setState(() {
+                _indexSelectedTab = index;
+              });
+            }
+          ),
+        ) : null,
         body: TabBarView(
           physics: const NeverScrollableScrollPhysics(),
           children: _screens
         ),
-        bottomNavigationBar: TabNavigation(
+        bottomNavigationBar: isDesktop ? null : TabNavigation(
           indexSelectedTab: _indexSelectedTab,
           icons: _icons,
           onTap: (index) {

@@ -1,4 +1,5 @@
 import 'package:faceflutter/utils/paleta_cores.dart';
+import 'package:faceflutter/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigation extends StatelessWidget {
@@ -21,13 +22,19 @@ class TabNavigation extends StatelessWidget {
         ),
       ))).values.toList(),
       labelColor: Colors.black54,
-      indicator: const BoxDecoration(
-        border: Border(
+      indicator: BoxDecoration(
+        border: Responsive.isDesktop(context) ? const Border(
+          bottom: BorderSide(
+            color: PaletaCores.azulFacebook,
+            width: 3,
+          ),
+        )
+        : const Border(
           top: BorderSide(
             color: PaletaCores.azulFacebook,
             width: 3,
           ),
-        ),
+        )
       )
     );
   }
